@@ -6,9 +6,7 @@ class Post < ApplicationRecord
   scope :update_posts_counter, -> { User.find(2).update(postsCounter: User.find(2).posts.count) }
   scope :post_recent_comments, -> { Comment.where(post_id: 1).order(created_at: :desc).limit(5) }
 
-  def update_post_counter
-    author.increment!(:postsCounter)
-  end
+
 
   def recent_comments
     comments.order('created_at Desc').limit(5)
@@ -18,4 +16,12 @@ class Post < ApplicationRecord
   validates :title, length: { maximum: 250 }
   validates :commentsCounter, numericality: { greater_than_or_equal_to: 0 }
   validates :likesCounter, numericality: { greater_than_or_equal_to: 0 }
+
+  after_save :update_post_counter
+
+  private
+
+  def update_post_counter
+    author.increment!(:postsCounter)
+  end
 end
