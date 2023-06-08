@@ -3,7 +3,6 @@ class Post < ApplicationRecord
   has_many :posts
   has_many :comments
 
-
   def recent_comments
     comments.order('created_at Desc').limit(5)
   end
