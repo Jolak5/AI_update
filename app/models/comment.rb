@@ -1,4 +1,6 @@
 class Comment < ApplicationRecord
-  belongs_to :users
-  belongs_to :posts
+  belongs_to :author, class_name: 'User', foreign_key: :author_id
+  belongs_to :post
+
+  scope :update_comment_counter, -> { Post.find(3).update(commentsCounter: Comment.where(post_id: 3).size) }
 end
