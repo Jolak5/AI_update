@@ -5,6 +5,4 @@ class Comment < ApplicationRecord
   def update_comments_counter
     post.increment!(:commentsCounter)
   end
-
-  scope :update_comment_counter, -> { Post.find(3).update(commentsCounter: Comment.where(post_id: 3).size) }
 end

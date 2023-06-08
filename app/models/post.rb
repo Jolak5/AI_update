@@ -3,8 +3,6 @@ class Post < ApplicationRecord
   has_many :posts
   has_many :comments
 
-  scope :update_posts_counter, -> { User.find(2).update(postsCounter: User.find(2).posts.count) }
-  scope :post_recent_comments, -> { Comment.where(post_id: 1).order(created_at: :desc).limit(5) }
 
   def recent_comments
     comments.order('created_at Desc').limit(5)
