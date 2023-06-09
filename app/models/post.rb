@@ -20,3 +20,6 @@ class Post < ApplicationRecord
     author.increment!(:postsCounter)
   end
 end
+
+posts = Post.new(title: "Kayode", text: "www.google.come")
+puts posts
