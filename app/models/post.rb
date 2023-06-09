@@ -21,5 +21,5 @@ class Post < ApplicationRecord
   end
 end
 
-posts = Post.new(title: "Kayode", text: "www.google.come")
+posts = Post.new(title: 'Kayode', text: 'www.google.come')
 puts posts
