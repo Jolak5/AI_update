@@ -78,29 +78,31 @@
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
+gem install rails
 
 ### Prerequisites
 
-In order to run this project you need: any web-browser.
+In order to run this project you need: Ruby and Rails.
 
 ### Setup
 
-Clone this [repository](https://github.com/Jolak5/AI_update) to your desired folder.
+Clone this [repository](https://github.com/Jolak5/AI_update.git) to your desired folder.
 
 ### Install
 
-This project does not require installation.
+To install re run bundle install
 
 ### Usage
 
 **To run the project follow the following instruction:-**
 
-- Clone this [repository](https://github.com/Jolak5/AI_update) in your local machine with correct branch.
-- Not yet available
+- run rails server
 
 ### Run tests
 
 To run tests, run the following command: **rspec**.
+Example command:
+bin/rails test test/models/article_test.rb
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
