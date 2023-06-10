@@ -7,7 +7,6 @@ class Post < ApplicationRecord
   attribute :commentsCounter, default: 0
   attribute :likes_counter, default: 0
 
-
   def recent_comments
     comments.last(5)
   end
@@ -25,4 +24,3 @@ class Post < ApplicationRecord
     author.increment!(:postsCounter)
   end
 end
-

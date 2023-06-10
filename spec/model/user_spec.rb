@@ -36,7 +36,6 @@ RSpec.describe User, type: :model do
       @first_user.postsCounter = -1
       expect(@first_user).not_to be_valid
     end
-  
   end
   it 'recent_post must not be negative' do
     expect(subject.recent_post).not_to be_nil
