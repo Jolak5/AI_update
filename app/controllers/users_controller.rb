@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
-  def index; end
+  def index
+    @placeholder = 'List of users'
+  end
 
   def show
-    puts params
+    @placeholder = "User details for id: #{params[:id]}"
   end
 end
