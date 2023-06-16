@@ -1,3 +1,16 @@
-<div>
-    <h1>This is the show for posts</h1>
-</div>
+<main>
+    <div class="detail">
+        <div class="user">
+            <h4>Post #<%= @post.id %> by <%= @post.author.name %></h4>
+            <p>Comments:<%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>
+        </div><br/>
+        <div class="detail_text">
+            <%= @post.text %>
+        </div>
+    </div>
+    <ul class="detail_comments">
+        <% @post.comments.each do |comment| %>
+        <li><%= @post.author.name%>: <%= comment.text%></li>
+        <% end %>
+  </ul>
+</main>
