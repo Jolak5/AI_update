@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-
   end
 
   def show
@@ -13,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(title: "...", text: "...")
+    @post = Post.new(title: '...', text: '...')
 
     if @post.save
       redirect_to @post
