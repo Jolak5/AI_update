@@ -8,7 +8,7 @@
 
     <div class="field">
         <%= form.label :title, 'Post title'%>
-        <%= form.text_field :title, class: render_error_border(form, :title) %>
+        <%= form.text_field :title %>
         <% if form.object.errors.any? %>
             <span class="block error">
                 <%= render_error_message_for_input(form, :title) %>
@@ -18,7 +18,7 @@
     </div>
     <div class="field">
         <%= form.label :text, 'Post Content'%>
-        <%= form.text_area :text, class: render_error_border(form, :text) %>
+        <%= form.text_area :text %>
         <% if form.object.errors.any? %>
             <span class="block error">
                 <%= render_error_message_for_input(form, :text) %>
