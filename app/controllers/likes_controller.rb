@@ -1,13 +1,24 @@
 class LikesController < ApplicationController
-  def create
-    @user = User.find(params[:user_id])
+    before_action :set_post, only: %i[create destroy]
 
-    if @user.user_has_liked(params[:post_id])
-      @user.remove_user_like(params[:post_id])
-    else
-      @user.add_user_like(params[:post_id])
+    def create
+      @like = @post.likes.build(author: current_user)
+      if @like.save
+        redirect_to user_post_path(user_id: current_user.id, id: @post.id), notice: 'Post liked!'
+      else
+        redirect_to user_post_path(user_id: current_user.id, id: @post.id), alert: 'Sorry, there was an error.'
+      end
     end
-
-    redirect_to request.path
-  end
-end
+  
+    def destroy
+      @like = current_user.likes.find(params[:id])
+      @like.destroy
+      redirect_to user_post_path(user_id: current_user.id, id: @post.id), notice: 'Post unliked!'
+    end
+  
+    private
+  
+    def set_post
+      @post = Post.find(params[:post_id])
+    end
+      end
