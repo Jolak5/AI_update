@@ -1,12 +1,22 @@
-<main>
-
-<div class="user" id="1">
-    <img src="" alt"">
-    <div>
-       <h1>User name</h1>
-       <p>Number of post</p>
-        <%=@placeholder%>
-    </div>
-</div>
-
-</main>
+<% if @users.blank? %>
+  <p>There are not any users currently in the system.</p>
+<% else %>
+  <h1>All users</h1>
+  <main>
+    <ul>
+      <% @users.each do |user| %>
+        <a class="link" href="/users/<%= user.id %>">
+          <li class="list_item">
+            <div class="photo">
+              <%= image_tag (user.photo) %>
+            </div>
+            <div class="user_name">
+              <h3><%= user.name %></h3>
+              <p>Number of posts: <%= user.postsCounter %></p>
+            </div>
+          </li>
+        </a>
+      <% end %>
+    </ul>
+  </main>
+<% end %>
