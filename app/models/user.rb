@@ -9,7 +9,7 @@ class User < ApplicationRecord
   attribute :postsCounter, default: 0
 
   def recent_post
-    posts.order(created_at: :DESC).limit(3)
+    posts.order(created_at: :ASC).limit(3)
   end
 
   def user_has_liked(post_id)

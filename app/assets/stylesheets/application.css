@@ -20,6 +20,8 @@ main {
   text-decoration: none;
   color: #333;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 ul {
@@ -50,8 +52,6 @@ ul {
 }
 
 .list_item {
-  display: flex;
-  justify-content: space-between;
   width: 100%;
   gap: 1rem;
 }
