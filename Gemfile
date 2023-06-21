@@ -75,8 +75,8 @@ end
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 group :development, :test do
+  gem 'capybara'
   gem 'rspec-rails'
-    gem 'capybara'
 
   # The following gems aids with the nuts and bolts
   # of interacting with the browser.
