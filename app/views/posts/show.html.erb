@@ -1,6 +1,7 @@
 <main>
     <div class="detail">
         <div class="user">
+       <h1><%=@post.title%></h1> 
             <h4>Post #<%= @post.id %> by <%= @post.author.name %></h4>
             <p>Comments:<%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>
         </div><br/>

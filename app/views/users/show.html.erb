@@ -14,7 +14,7 @@
     </div>
     <ul class="list">
         <% @user.recent_post.each do |post|%>
-        <a href="/users/<%=@user.id%>/posts">
+        <a href="/users/<%=@user.id%>/posts/<%= post.id %>">
             <li class="text">
                 <h4>Post #<%= post.id %></h4><br/>
                 <p><%= post.text %></p>
@@ -24,6 +24,9 @@
         <% end %>
     </ul>
     <div class="btn_container">
-      <button class="see_more">See all posts</button>
+
+       <a href="/users/<%=@user.id%>/posts" >
+           See all posts
+        </a>
     </div>
 </main>

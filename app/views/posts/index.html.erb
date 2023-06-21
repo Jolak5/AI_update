@@ -17,6 +17,7 @@
             <a class="link" href="/users/<%= @user.id %>/posts/<%= post.id %>">
                 <div class="text">
                     <h4>Post #<%= post.id %></h4> <br/>
+                    <h2><%=post.title%></h2>
                     <p><%= truncate(post.text, length: 20) %></p>
                     <p class="float">Comments:<%= post.commentsCounter %>, Likes: <%= post.likes.count %></p>
                 </div>
