@@ -12,7 +12,7 @@
     <p>There are not any post currently for this author.</p>
     <% else %>
         <ul id="list" class="list">
-        <% @user.posts.each do |post| %>
+        <% @user.posts.includes(:comments, author: :comments).each do |post| %>
         <li class="post">
             <a class="link" href="/users/<%= @user.id %>/posts/<%= post.id %>">
                 <div class="text">
