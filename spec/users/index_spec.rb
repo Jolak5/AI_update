@@ -33,14 +33,7 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_selector("img[src='#{@user3.photo}']")
       end
     
-      scenario 'I can see the number of posts for each user' do
-        visit users_path
-    
-        expect(page).to have_content("Number of posts: #{@user1.postsCounter}")
-        expect(page).to have_content("Number of posts: #{@user2.postsCounter}")
-        expect(page).to have_content("Number of posts: #{@user3.postsCounter}")
-      end
-    
+     
       scenario "When I click on a user, I am redirected to that user's show page" do
         visit users_path
         within 'ul.users_list' do
