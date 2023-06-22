@@ -151,6 +151,20 @@ ul {
   padding-right: 0.2rem;
 }
 
+.form-container {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.field {
+  width: 100%;
+}
+
+.submit {
+  width: 100%;
+}
+
 @media (min-width: 768px) {
   main {
     width: 70%;
