@@ -151,6 +151,28 @@ ul {
   padding-right: 0.2rem;
 }
 
+.form-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field {
+  width: 100%;
+}
+
+.submit {
+  width: 100%;
+}
+
 @media (min-width: 768px) {
   main {
     width: 70%;
