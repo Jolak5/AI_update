@@ -6,14 +6,10 @@ class PostsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    @post = @user.posts.find_by(id: params[:id])
-  
-    if @post.nil?
-      # Handle the case when the post is not found
-      redirect_to user_path(@user), alert: 'Post not found.'
-    else
-      @current_user = current_user
-    end
+    @post = Post.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:error] = 'Post not found'
+    redirect_to user_posts_path(@user)
   end
   
   
@@ -31,6 +27,14 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
+    authorize! :destroy, @post
+    @post.destroy
+    redirect_to user_path(@user)
   end
 
   private

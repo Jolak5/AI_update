@@ -11,8 +11,14 @@
     </div>
     <ul class="detail_comments">
         <% @post.comments.each do |comment| %>
-        <li><%= @post.author.name%>: <%= comment.text%></li>
+         <li><%= @post.author.name%>: <%= comment.text%>
+        
+              <% if can? :destroy, comment %>
+                 <%= button_to "Delete Comment", user_post_comment_path(@user, @post, comment), method: :delete %>
+              <% end %>
+          </li>
         <% end %>
+             
   </ul>
     <div class="btn_container">
     
@@ -29,7 +35,16 @@
 
  <div class="button_holder">
       <button class="create_post_btn">
-          <%= link_to 'Create new post', new_user_post_comment_path(post_id: @post.id) %>
+          <%= link_to 'Create new comment', new_user_post_comment_path(post_id: @post.id) %>
       </button>
     </div>
+
+
+
+
+<% if can? :destroy, @post %>
+  <%= button_to "Delete Post", user_post_path(@user, @post), method: :delete %>
+<% end %>
+
+
 </main>
