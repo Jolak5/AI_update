@@ -1,7 +1,9 @@
 <main>
     <div class="list_item">
         <div class="photo">
-            <%= image_tag (@user.photo) %>
+           <% if @user && @user.photo %>
+  <%= image_tag(@user.photo) %>
+<% end %>
         </div>
         <div class="user_name">
             <h3><%= @user.name %></h3>

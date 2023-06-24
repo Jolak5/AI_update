@@ -6,11 +6,20 @@ class PostsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    @post = User.find(params[:user_id]).posts.find(params[:id])
+    @post = @user.posts.find_by(id: params[:id])
+  
+    if @post.nil?
+      # Handle the case when the post is not found
+      redirect_to user_path(@user), alert: 'Post not found.'
+    else
+      @current_user = current_user
+    end
   end
-
+  
+  
   def new
-    @post = Post.new
+    @post = current_user.posts.new
+
   end
 
   def create
